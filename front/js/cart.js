@@ -135,7 +135,7 @@ function changeQty(api, products) {
     // ------- je boucle tout les elements de la const (inputs) et pour chaque (input)-----------
     input.addEventListener("change", function () {
       // addEventListener écoute une action // -------------j'ecoute le comportement de (change) de la function-------------
-      const product = input.closest("article"); // ---------------je recupère l'article à la racine-----------
+      const product = input.closest("article"); // ---------------je recupère l'article le plus proche de l'input à la racine-----------
       const productId = product.dataset.id; // --------- je defini l'atribue  dataset et je lui assigne la valeur  de l'id -------------
       const productColor = product.dataset.color;
       let quantityInput = document.getElementById("itemQuantity"); // ----------je récupère l'id de lélement 'itemquantity'---------
@@ -364,7 +364,7 @@ order.addEventListener("click", function (evnt) {
         validLastName(inputLastName) &&
         validfirstName(inputFirstName)
       ) {
-        const productsId = []; 
+        const productsId = []; // stoc
         products.forEach((product) => {
           productsId.push(product.id);
         });
