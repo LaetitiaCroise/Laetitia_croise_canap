@@ -13,16 +13,16 @@ function getProductList() {
 
           // je construis et définis le DOM grâce à la boucle
           let items = document.getElementById('items'); //---- Sélectionne la section item dans mon html ---
-          a = document.createElement('a'); //------ créé le lien qui va contenir les cartes des produits-----
-          article = document.createElement('article'); //------ créé la balise "article"----
+          let a = document.createElement('a'); //------ créé le lien qui va contenir les cartes des produits-----
+          let article = document.createElement('article'); //------ créé la balise "article"----
           article.classList.add("productCard"); //------ ajoute une classe au article----
-          img = document.createElement('img'); //------ créé la balise "img"----
+          let img = document.createElement('img'); //------ créé la balise "img"----
           img.classList.add("productImage") //------ ajoute une classe au img----
-          h3 = document.createElement('h3'); //---- créé la balise "h3"----
+          let h3 = document.createElement('h3'); //---- créé la balise "h3"----
           h3.classList.add("productName"); //------ ajoute une classe au h3----
-          p = document.createElement('p'); //---- créé une balise "p"----
+          let p = document.createElement('p'); //---- créé une balise "p"----
           p.classList.add("productDescription"); //---- ajoute une classe à mon "p"-----
-          productUrl = "./product.html?id=" + product._id; //---- attribue un lien a la balise "a"----
+          let productUrl = "./product.html?id=" + product._id; //---- attribue un lien a la balise "a"----
 
           items.appendChild(a); //---- j'assigne les liens des articles (les enfants),au parent qui est la section "items" dans lesquels ils sont rangés  ------
           a.appendChild(article); //---- l'article c'est l'enfant la balise "a" c'est le parent ----
