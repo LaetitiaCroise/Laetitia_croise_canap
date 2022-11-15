@@ -391,13 +391,13 @@ order.addEventListener("click", function (evnt) {
   }
 });
 
-// -------- et si oui confirme la commande------
+// -------- et si oui confirme la commande ------
 const orderProducts = (order) => {
   fetch("http://localhost:3000/api/products/order", {
     method: "POST",
-    headers: {
+    headers: { // ---------Precises les données qui vont être envoyer au serveur 
       Accept: "application/json",
-      "Content-type": "application/JSON",
+      "Content-Type": "application/JSON", //-------- dont le header en question est content type suivie de sa valeur ------
     },
     body: JSON.stringify(order), //------------ convertie order en json----------
   })
