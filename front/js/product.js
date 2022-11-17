@@ -77,8 +77,8 @@ let validator = true
     alert("Merci de choisir votre couleur");
     validator = false;
   }
-  if (quantityValue == 0){
-    alert("Merci de choisir la quantité d'article souhaité");
+  if (quantityValue <= 0){
+    alert("Merci de choisir une quantité comprise entre 1 et 100");
     validator = false;
   }
   if (quantityValue > 100){

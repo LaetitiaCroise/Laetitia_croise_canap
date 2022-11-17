@@ -141,10 +141,14 @@ function changeQty(api, products) {
       let quantityInput = document.getElementById("itemQuantity"); // ----------je récupère l'id de lélement 'itemquantity'---------
       let quantityValue = quantityInput.value; //------- je lui atrribue une valeur--------
 
+      if (quantityValue <= 0){
+        alert("Merci de choisir une quantité comprise entre 1 et 100");
+        quantityInput.value = 1
+        quantityValue = quantityInput.value
+        validator = false;
+      }
       if (quantityValue > 100) {
         alert("Merci de choisir une quantité comprise entre 1 et 100");
-        validator = false;
-      } else if (quantityValue <= 0) {
         validator = false;
       }
       else {
@@ -323,24 +327,25 @@ function validCity(inputCity) {
 //-----------fin/city-----------
 
 //-----------e-mail-----------
-let inputEmail = document.getElementById("email");
+let inputEmail = document.querySelector("#email");
 inputEmail.addEventListener("change", function () {
   validEmail(this);
 });
-function validEmail(inputEmail) {
-  let emailRegex = new RegExp(
-    "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$"
-  );
 
-  if (!emailRegex.test(inputEmail.value)) {
+function validEmail(inputEmail) {
+
+  let emailRegex = new RegExp("^[A-Z8\.a-z-0-9_]+@[A-Za-z]+\.[A-Za-z]+$")
+
+ if (emailRegex.test(inputEmail.value)) {
+  let errorMessageEmail = document.getElementById("emailErrorMsg");
+  errorMessageEmail.innerHTML = "";
+  return true;
+}
+  else {
     let errorMessageEmail = document.getElementById("emailErrorMsg");
-    errorMessageEmail.innerHTML = "Merci d'ajouter un Email valide";
+    errorMessageEmail.innerHTML = "Le champs Email renseigné n'est pas valide";
     return false;
-  } else {
-    let errorMessageEmail = document.getElementById("emailErrorMsg");
-    errorMessageEmail.innerHTML = "";
-    return true;
-  }
+}
 }
 //-----------fin/e-mail-----------
 
@@ -383,7 +388,7 @@ order.addEventListener("click", function (evnt) {
         };
         orderProducts(order);
       } else {
-        alert("Votre panier est vide");
+        alert("Veuillez completer le formulaire");
       }
     } else {
       alert("Merci de choisir une quantité comprise entre 1 et 100");
