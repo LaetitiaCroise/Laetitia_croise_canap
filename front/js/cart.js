@@ -328,25 +328,26 @@ function validCity(inputCity) {
 
 //-----------e-mail-----------
 let inputEmail = document.querySelector("#email");
-inputEmail.addEventListener("change", function () {
+inputEmail.addEventListener("input", function () {
   validEmail(this);
 });
 
 function validEmail(inputEmail) {
 
-  let emailRegex = new RegExp("^[A-Z8\.a-z-0-9_]+@[A-Za-z]+\.[A-Za-z]+$")
-
- if (emailRegex.test(inputEmail.value)) {
-  let errorMessageEmail = document.getElementById("emailErrorMsg");
-  errorMessageEmail.innerHTML = "";
-  return true;
+const regEm = /^[\w.-]+@[A-Za-z]+\.[A-Za-z]+$/
+  
+ if (!regEm.test(inputEmail.value)) {
+   let errorMessageEmail = document.getElementById("emailErrorMsg");
+   errorMessageEmail.innerHTML = "Le champs Email renseigné n'est pas valide";
+   return false;
 }
-  else {
+else {
     let errorMessageEmail = document.getElementById("emailErrorMsg");
-    errorMessageEmail.innerHTML = "Le champs Email renseigné n'est pas valide";
-    return false;
+    errorMessageEmail.innerHTML = "";
+    return true;
 }
 }
+
 //-----------fin/e-mail-----------
 
 //  ----------------Récupération des données validées du form--------------
